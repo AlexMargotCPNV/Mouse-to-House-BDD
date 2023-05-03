@@ -1,58 +1,50 @@
 <?php
 
-/*
- * Cette fontion vérifie les données et enregistre les données d'un nouveau utilisateur si les données reçues sont accéptées
- */
-function WriteData($values){
+define('USERS_DATA_PATHNAME', BASE_DIR.'/users.json');
 
-    // Si les données n'ont pas été reçues alors renvoyer l'utilisateur à la page lost
-    if (!empty($values)) {
-        // Extraire toutes les données de l'utilisateur
-        $username = implode(" ", array($values['username']));
-        $name = implode(" ", array($values['name']));
-        $firstname = implode(" ", array($values['firstname']));
-        $Email = implode(" ", array($values['Email']));
-        $telNumber = implode(" ", array($values['telNumber']));
-        $password = implode(" ", array($values['password']));
-        $PasswordHash = password_hash($password, PASSWORD_DEFAULT);
-        $values['isUserAdmin'] = isset($values['isUserAdmin']) && $values['isUserAdmin'] == 1 ? $values['isUserAdmin'] : 0;
-        $isAdmin = 0;
+/**
+ ** User:
+ **   username: string  User identifier
+ **   name:     string  Display name
+ **   password: string  Hashed password
+ **
+ **/
 
-        // Si la valeur de isUserAdmin est 1 alors l'utilisateur est un Admin
-        if (isset($values['isUserAdmin']) && $values['isUserAdmin'] == 1) {
-            $isAdmin = 1;
-        }
+function findUser($username)
+{
+    // Read the user.dat file for the passed $username
+    try {
+        return json_decode(file_get_contents(USERS_DATA_PATHNAME), true)[$username] ?? null;
+    }
+    catch (Exception $e) {
+        // Any error will return a null object, so asking for a non existant user throws a PATH_NOT_FOUND error thus returns null.
+        return null;
+    }
+}
 
-        // Ouvrir le fichier des utilisateurs pour pouvoir le lire
-        $fp = fopen("Data/UsersData.csv", 'r');
+function saveUser($user)
+{
+    $username = $user['username'];
 
-        // Boucler tant que les données de tous les autres utilisateurs n'ont pas été vérifiées
-        while (($data = fgetcsv($fp, 0, ",")) !== FALSE) {
-            // Si l'email, ou username ou le telNumber existent déjà dans le fichier alors return false
-            if (in_array($Email, $data) || in_array($username, $data) || in_array($telNumber, $data)) {
-                // Fermer le fichier
-                fclose($fp);
-                header("Location: index.php?action=signin");
-                return false;
-            }
-        }
-        // Fermer le fichier
-        fclose($fp);
+    $allUsers = getAllUsers();
+    $allUsers[$username] = array_merge($allUsers[$username] ?? [], $user);
 
-        // Les valeurs n'existent pas, ajouter le nouveau utilisateur au fichier
-        $ValuesToInsert = array($username, $name, $firstname, $Email, $telNumber, $PasswordHash, $isAdmin);
+    file_put_contents(USERS_DATA_PATHNAME, json_encode($allUsers));
+}
 
-        // Ouvrir et écrire dans le fichier des utilisateurs
-        $fp = fopen("Data/UsersData.csv", 'a+');
-        fputcsv($fp, $ValuesToInsert, ",");
+function registerUser($user)
+{
+    $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+    saveUser($user);
+}
 
-        // Fermer le fichier
-        fclose($fp);
-
-        // Renvoyer l'utilisateur à la homepage
-        home();
-        exit;
-    } else {
-        lost();
+function getAllUsers()
+{
+    try {
+        return json_decode(file_get_contents(USERS_DATA_PATHNAME), true);
+    }
+    catch (Exception $e) {
+        // The file does not yet exist, so there's no users
+        return [];
     }
 }
