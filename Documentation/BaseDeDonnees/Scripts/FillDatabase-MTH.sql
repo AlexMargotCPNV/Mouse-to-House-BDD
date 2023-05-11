@@ -3,8 +3,6 @@
 -- Server version:               10.9.2-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
 -- HeidiSQL Version:             12.1.0.6537
--- Author:								João Carvalho Santos
--- Date:									May 2023
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
