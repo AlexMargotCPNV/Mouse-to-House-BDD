@@ -20,7 +20,7 @@ DROP DATABASE IF EXISTS `mth`;
 CREATE DATABASE IF NOT EXISTS `mth` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci */;
 USE `mth`;
 
--- Dumping structure for table mth.mice
+-- Dumping structure for table mth.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -63,3 +63,20 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `product_code` (`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping structure for table mth.users_save_products
+DROP TABLE IF EXISTS `users_save_products`;
+CREATE TABLE IF NOT EXISTS `users_save_products` (
+  `user_id` INT NOT NULL,
+  `product_id` INT NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8MB4;
+
+-- Referential constraints
+ALTER TABLE requests ADD CONSTRAINT FK_user_request FOREIGN KEY(user_id)
+REFERENCES users(id);
+
+ALTER TABLE users_save_products ADD CONSTRAINT FK_user_save FOREIGN KEY(user_id)
+REFERENCES users(id);
+
+ALTER TABLE users_save_products ADD CONSTRAINT FK_saved_product FOREIGN KEY(product_id)
+REFERENCES products(id);
