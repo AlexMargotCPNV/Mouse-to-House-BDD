@@ -18,7 +18,7 @@ function dispatch($bag)
 
     //-----------------------------------------------------------------------------
     if (preg_match('/^\/?$/', $bag['route'])) {
-        $bag['view'] = 'views/site/index';
+        $bag['view'] = 'views/site/homepage';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/(login|register)$/', $bag['route'], $matches)) {
