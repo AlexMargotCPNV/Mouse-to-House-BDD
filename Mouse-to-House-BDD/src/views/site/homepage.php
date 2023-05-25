@@ -1,4 +1,3 @@
-
     <h1 class="pageTitle" style="font-size: 45px">Accueil</h1>
 <?php
 
