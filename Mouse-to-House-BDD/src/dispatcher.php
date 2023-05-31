@@ -21,6 +21,57 @@ function dispatch($bag)
         $bag['view'] = 'views/site/homepage';
     }
     //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/helppage';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/itemspage';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/signinpage';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/profilepage';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/Checkout';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/PayPage';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/OurTeam';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route']) && $bag['method'] == 'POST') {
+        $bag['handler'] = 'controllers/site/helpController';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
+        if (isset($_REQUEST['code'])) {
+            $bag = $_REQUEST['code'];
+            $bag['handler'] = 'controllers/site/itemController';
+        } else {
+            $bag['status_code'] = 404;
+        }
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/?$', $bag['route'])) {
+        if (isset($_SESSION['auth'])) {
+            $bag['handler'] = 'controllers/site/userController';
+        }
+    }
+
+
+
+
+
     elseif (preg_match('/^\/(login|register)$/', $bag['route'], $matches)) {
         if ($bag['method'] == 'POST') {
             $bag['handler'] = 'controllers/site/'.$matches[1];
