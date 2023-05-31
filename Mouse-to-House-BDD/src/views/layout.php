@@ -1,51 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?? "Sans titre" ?> - ooless-MVC</title>
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/custom.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>homepage</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Home</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
+<h1 class="pageTitle"><a href="/" id="titre">Mouse to House</a></h1>
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+        <ul class="navbar-nav nav-left">
+            <li class="nav-item">
+                <a class="nav-link active" href="/"><img class="logo" src="/images/MouseToHouse_Logo.png"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/items">Produits</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/help">Aide</a>
+            </li>
         </ul>
-
-        <div class="navbar-right">
-          <ul class="nav navbar-nav">
-          <?php if ($bag['current_user'] ?? null): ?>
-            <li><div class="navbar-text"><?= $bag['current_user']['name'] ?></div></li>
-            <li><form class="navbar-form" method="post" action="<?= route('logout') ?>"><button type="submit" class="btn btn-link navbar-link">Se déconnecter</button></form>
-          <?php else: ?>
-            <li><a href="<?= route('login') ?>" class="btn">Connexion</a></li>
-            <li><a href="<?= route('register') ?>" class="btn">Inscription</a></li>
-          <?php endif; ?>
-          </ul>
-        </div>
-      </div><!--/.navbar-collapse -->
+        <ul class="navbar-nav nav-right">
+            <li class="nav-item">
+                <a class="nav-link" href="/cart">Panier</a>
+            </li>
+            <li class="nav-item">
+                <?php
+                if(!isset($_SESSION['auth'])) {
+                    echo '<a class="nav-link" href="/login">Se connecter</a>';
+                } else {
+                    echo '<a class="nav-link" href="/profile">'. $_SESSION['username'] .'</a>';
+                } ?>
+            </li>
+            <li class="nav-item">
+                <?php
+                if(!isset($_SESSION['auth'])) {
+                    echo '<a class="nav-link" href="/signin">Créer un compte</a>';
+                } else {
+                    echo '<a class="nav-link" href="/logout">Se deconnecter</a>';
+                }
+                ?>
+            </li>
+        </ul>
     </div>
-  </div>
+</nav>
 
-  <div class="container">
-    <?= $content ?>
-  </div>
+<?= $content ?>
 
-  <!-- Bootstrap core JavaScript -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+<footer id="footer">
+    <a href="www.facebook.com"><img class="social" src="/images/Facebook.png"></a>
+    <a href="www.instagram.com"><img class="social" src="/images/Instagram.png"></a>
+</footer>
 </body>
 </html>
