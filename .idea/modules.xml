@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Mouse-to-House-BDD.iml" filepath="$PROJECT_DIR$/.idea/Mouse-to-House-BDD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MouseToHouse/.idea/MouseToHouse.iml" filepath="$PROJECT_DIR$/../MouseToHouse/.idea/MouseToHouse.iml" />
     </modules>
   </component>
 </project>
