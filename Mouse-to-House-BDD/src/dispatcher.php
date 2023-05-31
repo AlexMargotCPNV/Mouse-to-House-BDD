@@ -62,7 +62,7 @@ function dispatch($bag)
         }
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$', $bag['route'])) {
+    elseif (preg_match('/^\/?$/', $bag['route'])) {
         if (isset($_SESSION['auth'])) {
             $bag['handler'] = 'controllers/site/userController';
         }
