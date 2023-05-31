@@ -1,6 +1,6 @@
 <?php
 
-// Ouvrir le fichier des produits pour pouvoir le lire
+// a faire : remplacer la ligne d'en dessous par une requete dirrection la bddet donc adapter le code en fonction de ce changement
 $file = fopen('Data/items.csv', 'r');
 
 // Si le fichier a été trouvé alors affiché les produits
