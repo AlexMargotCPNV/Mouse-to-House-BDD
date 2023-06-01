@@ -19,6 +19,6 @@
     </form>
     <div class="accountLink">
         <a>Vous n'avez pas encore de compte ?<br></a>
-        <a href="index.php?action=signin"> Cliquez ici.</link></a>
+        <a href="signin"> Cliquez ici.</link></a>
     </div>
 </div>
