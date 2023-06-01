@@ -1,28 +1,24 @@
 <?php $title = "Connexion" ?>
-<div class="col-md-4 col-md-offset-4">
-  <form class="form-horizontal" role="form" method="post">
-    <h1 class="text-center">Connexion</h1>
-    <div class="form-group <?= isset($data['username_error']) ? 'has-error' : '' ?>">
-      <label for="username" class="control-label">Identifiant</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Identifiant">
-      <?php if ($data['username_error'] ?? null): ?>
-        <span class="help-block"><?= $data['username_error'] ?></span>
-      <?php endif; ?>
+<div id="container">
+    <!-- zone de connexion -->
+
+    <form action="index.php?action=login" method="POST">
+        <h1>Connexion</h1>
+
+        <label><b>E-mail</b></label>
+        <input type="text" placeholder="Entrer l'E-mail" name="email" required>
+
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+        <input type="submit" id='submit' value='Se connecter'>
+
+        <?php if ($_SESSION['loginFailed'] == 2) : ?>
+            <h5><span style="color:red">E-mail ou mot de passe incorrect!</span></h5>
+        <?php endif ?>
+    </form>
+    <div class="accountLink">
+        <a>Vous n'avez pas encore de compte ?<br></a>
+        <a href="index.php?action=signin"> Cliquez ici.</link></a>
     </div>
-    <div class="form-group <?= isset($data['password_error']) ? 'has-error' : '' ?>">
-      <label for="password" class="control-label">Mot de passe</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
-      <?php if ($data['password_error'] ?? null): ?>
-        <span class="help-block"><?= $data['password_error'] ?></span>
-      <?php endif; ?>
-    </div>
-    <?php if ($data['login_error'] ?? null): ?>
-      <div class="form-group has-error">
-        <span class="help-block"><?= $data['login_error'] ?></span>
-      </div>
-    <?php endif; ?>
-    <div class="form-group">
-      <button type="submit" class="btn btn-lg btn-success btn-block">Connexion</button>
-    </div>
-  </form>
 </div>
