@@ -16,6 +16,9 @@ function dispatch($bag)
     // If any match defines a 'view', it should use our one and only layout.
     $bag['layout'] = 'views/layout';
 
+    if (preg_match('/^\/?$/', $bag['route'])) {
+        $bag['view'] = 'views/site/index';
+    }
     //-----------------------------------------------------------------------------
     if (preg_match('/^\/?$/', $bag['route'])) {
         $bag['view'] = 'views/site/homepage';
@@ -68,11 +71,8 @@ function dispatch($bag)
         }
     }
 
-
-
-
-
-    elseif (preg_match('/^\/(login|register)$/', $bag['route'], $matches)) {
+//---------------------------------------------------------------------------------
+    elseif (preg_match('/^\/(login|signin)$/', $bag['route'], $matches)) {
         if ($bag['method'] == 'POST') {
             $bag['handler'] = 'controllers/site/'.$matches[1];
         } elseif ($bag['method'] == 'GET') {

@@ -24,8 +24,8 @@
 //if ($item !== false) {
  //   if (isset($item['Image']) && isset($item['marque']) && isset($item['modele']) && isset($item['prix'])) {
         ?>
-    <p id="hometext">La <b><?php// echo $item['modele']?></b> de chez <b><?php //echo $item['marque']?></b> est disponible au prix de <strong><?php //echo $item['prix']?>  CHF !</strong></p>
-   <a id="details" href="index.php?action=item&code=<?//= $item['code'] ?>">
+    <p id="hometext">La <b><?php // echo $item['modele']?></b> de chez <b><?php //echo $item['marque']?></b> est disponible au prix de <strong><?php //echo $item['prix']?>  CHF !</strong></p>
+   <a id="details" href="index.php?action=item&code=<? //= $item['code'] ?>">
         <img class="HomePageImg" src="<?php //echo $item['Image']; ?>" alt="Image de la souris">
         </a><?php
         ?><?php
@@ -37,4 +37,4 @@
   //  }
 
 //?>
--->
+
