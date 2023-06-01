@@ -12,10 +12,10 @@
         <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
         <input type="submit" id='submit' value='Se connecter'>
+        <?php //if ($_SESSION['loginFailed'] == 2) : ?>
+            <!--<h5><span style="color:red">E-mail ou mot de passe incorrect!</span></h5>-->
+        <?php // endif ?>
 
-        <?php if ($_SESSION['loginFailed'] == 2) : ?>
-            <h5><span style="color:red">E-mail ou mot de passe incorrect!</span></h5>
-        <?php endif ?>
     </form>
     <div class="accountLink">
         <a>Vous n'avez pas encore de compte ?<br></a>

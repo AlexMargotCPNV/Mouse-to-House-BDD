@@ -24,32 +24,32 @@ function dispatch($bag)
         $bag['view'] = 'views/site/homepage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(help)$/', $bag['route'])) {
         $bag['view'] = 'views/site/helppage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(items)$/', $bag['route'])) {
         $bag['view'] = 'views/site/itemspage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
-        $bag['view'] = 'views/site/signinpage';
-    }
-    //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(profil)$/', $bag['route'])) {
         $bag['view'] = 'views/site/profilepage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(checkout)$/', $bag['route'])) {
         $bag['view'] = 'views/site/Checkout';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(paypage)$/', $bag['route'])) {
         $bag['view'] = 'views/site/PayPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route'])) {
+    elseif (preg_match('/^\/(ourTeam)$/', $bag['route'])) {
         $bag['view'] = 'views/site/OurTeam';
+    }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/(cart)$/', $bag['route'])) {
+        $bag['view'] = 'views/site/Cartpage';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/?$/', $bag['route']) && $bag['method'] == 'POST') {

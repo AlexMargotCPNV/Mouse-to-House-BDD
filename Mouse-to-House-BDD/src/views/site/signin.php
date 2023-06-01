@@ -25,9 +25,9 @@
 
         <input type="submit" id='submit' value='Créer le compte'>
 
-        <?php if ($_SESSION['registerFailed'] == 2) : ?>
-            <h5><span style="color:red">Ce nom d'utilisateur, E-mail ou numéro de téléphone ont déjà été utilisés!</span></h5>
-        <?php endif ?>
+        <?php // if ($_SESSION['registerFailed'] == 2) : ?>
+          <!--  <h5><span style="color:red">Ce nom d'utilisateur, E-mail ou numéro de téléphone ont déjà été utilisés!</span></h5>-->
+        <?php // endif ?>
     </form>
     <div class="accountLink">
         <a>Vous avez dèja un compte ?<br></a>

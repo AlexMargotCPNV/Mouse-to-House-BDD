@@ -1,3 +1,4 @@
+<?php $title="Items" ?>
 <?php
 
 // a faire : remplacer la ligne d'en dessous par une requete dirrection la bddet donc adapter le code en fonction de ce changement
@@ -80,8 +81,3 @@ if ($file !== FALSE) {
     echo "</table>";
     fclose($file);
 }
-
-
-require "gabarit.php";
-?>
-<?php
