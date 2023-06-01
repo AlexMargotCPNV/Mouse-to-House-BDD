@@ -15,7 +15,6 @@
         <br>
         <br>
         <input type="submit" id='signaler' value='Signaler le problème'>
-    </form>
 </div>
 <br><br><br>
 <div id="DivContact">
