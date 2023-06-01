@@ -1,5 +1,5 @@
-    <h1 class="pageTitle" style="font-size: 45px">Accueil</h1>
-<?php
+<?php $title = "Accueil";
+echo "<h1 class='pageTitle' style='font-size: 45px'>Accueil</h1>";
 
 // Ouvrir le fichier des produits pour pouvoir le lire
 //$file = fopen('Data/items.csv', 'r');
@@ -28,7 +28,6 @@
    <a id="details" href="index.php?action=item&code=<? //= $item['code'] ?>">
         <img class="HomePageImg" src="<?php //echo $item['Image']; ?>" alt="Image de la souris">
         </a><?php
-        ?><?php
         ?>
         <a id="lienproduits" href="index.php?action=items">Découvrez tous nos produits ici !</a><?php
 

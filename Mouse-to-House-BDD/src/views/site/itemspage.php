@@ -1,5 +1,4 @@
-<?php $title="Items" ?>
-<?php
+<?php $title="Produits";
 
 // a faire : remplacer la ligne d'en dessous par une requete dirrection la bddet donc adapter le code en fonction de ce changement
 $file = fopen('Data/items.csv', 'r');
