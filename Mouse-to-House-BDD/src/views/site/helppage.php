@@ -1,3 +1,4 @@
+<?php $title = "Aide" ?>
 <div id="DescriptionDiv">
     <?php
     // Si un utilisateur n'est pas connecté alors renvoyer l'utilisateur à la page de connexion
@@ -22,4 +23,3 @@
     <label id="mail"> Mail : <a href="mailto:MouseToHouse@exemple.com">MouseToHouse@exemple.com</a></label><br>
     <label id="telephone" style="margin-bottom: 50px">Tél : 012 345 67 89</label><br>
 </div>
-
