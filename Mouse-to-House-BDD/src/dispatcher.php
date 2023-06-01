@@ -16,40 +16,37 @@ function dispatch($bag)
     // If any match defines a 'view', it should use our one and only layout.
     $bag['layout'] = 'views/layout';
 
-    if (preg_match('/^\/?$/', $bag['route'])) {
-        $bag['view'] = 'views/site/index';
-    }
     //-----------------------------------------------------------------------------
     if (preg_match('/^\/?$/', $bag['route'])) {
         $bag['view'] = 'views/site/homepage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(help)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/helppage';
+    elseif (preg_match('/^\/help$/', $bag['route'])) {
+        $bag['view'] = 'views/site/helpPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(items)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/itemspage';
+    elseif (preg_match('/^\/items$/', $bag['route'])) {
+        $bag['view'] = 'views/site/itemsPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(profil)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/profilepage';
+    elseif (preg_match('/^\/profil$/', $bag['route'])) {
+        $bag['view'] = 'views/site/profilePage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(checkout)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/Checkout';
+    elseif (preg_match('/^\/checkout$/', $bag['route'])) {
+        $bag['view'] = 'views/site/checkoutPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(paypage)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/PayPage';
+    elseif (preg_match('/^\/afterpayement$/', $bag['route'])) {
+        $bag['view'] = 'views/site/afterPaymentPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(ourTeam)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/OurTeam';
+    elseif (preg_match('/^\/ourTeam$/', $bag['route'])) {
+        $bag['view'] = 'views/site/ourTeam';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/(cart)$/', $bag['route'])) {
-        $bag['view'] = 'views/site/Cartpage';
+    elseif (preg_match('/^\/cart$/', $bag['route'])) {
+        $bag['view'] = 'views/site/cartPage';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/?$/', $bag['route']) && $bag['method'] == 'POST') {
@@ -70,15 +67,23 @@ function dispatch($bag)
             $bag['handler'] = 'controllers/site/userController';
         }
     }
-
-//---------------------------------------------------------------------------------
-    elseif (preg_match('/^\/(login|signin)$/', $bag['route'], $matches)) {
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/login$/', $bag['route'])) {
         if ($bag['method'] == 'POST') {
-            $bag['handler'] = 'controllers/site/'.$matches[1];
+            $bag['handler'] = 'controllers/site/loginPage';
         } elseif ($bag['method'] == 'GET') {
-            $bag['view'] = 'views/site/'.$matches[1];
+            $bag['view'] = 'views/site/loginPage';
         }
     }
+    //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/signin$/', $bag['route'])) {
+        if ($bag['method'] == 'POST') {
+            $bag['handler'] = 'controllers/site/signinPage';
+        } elseif ($bag['method'] == 'GET') {
+            $bag['view'] = 'views/site/signinPage';
+        }
+    }
+
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/logout$/', $bag['route']) && $bag['method'] == 'POST') {
         $bag['handler'] = 'controllers/site/logout';

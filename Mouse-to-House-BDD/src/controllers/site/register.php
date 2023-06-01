@@ -32,6 +32,6 @@ if (empty($bag['data'])) {
 }
 
 // Invalid, render the view
-$bag['view'] = 'views/site/register';
+$bag['view'] = 'views/site/signinPage';
 $bag['data'] = array_merge($bag['data'], compact('username', 'name'));
 return $bag;
