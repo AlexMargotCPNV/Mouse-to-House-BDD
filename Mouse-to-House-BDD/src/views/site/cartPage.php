@@ -1,5 +1,6 @@
 <?php $title = "Panier";
 
+echo "<h1 style='color: red; margin-left: auto; margin-right: auto;margin-top: 50px;margin-bottom: 50px'>Vous n'avez pas d'article dans votre panier !</h1></style>";
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['username'])) {
     // Ouvrir le fichier CSV en lecture
@@ -14,9 +15,7 @@ if (isset($_SESSION['username'])) {
             print_r($data[0]);
             //print_r($data[1]);
         } else {
-            echo "pas oke mon reuf";
-            print_r($data[0]);
-            //print_r($data[1]);
+            echo "<h1>Vous n'avez pas d'article dans votre panier !</h1>";
         }
     }
     // Fermer le fichier
@@ -30,8 +29,10 @@ if (isset($_SESSION['username'])) {
     //print_r($_SESSION['username']);
 }?>
 
+<a href="itemspage" style="margin-right: auto;margin-left: auto;margin-bottom: 30px">Pour plus de produit cliquez ici !</a>
+
 <div>
-    <form class="Checkout" method="post" action="index.php?action=Checkout">
+    <form class="Checkout" method="post" action="checkout">
         <input type="submit" value="Passer en caise"/>
     </form>
 </div>
