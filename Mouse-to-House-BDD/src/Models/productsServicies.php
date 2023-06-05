@@ -24,6 +24,6 @@ function getMouse(){
 function getMice($code)
 {
     $separator = '\'';
-    $productsQuery = 'SELECT code, brand,model, snowLength, dailyPrice, qtyAvailable, description, photo FROM snows WHERE code='.$separator.$code.$separator.'AND active=1';
+    $productsQuery = 'SELECT code, brand, model, price_francs, image_path FROM mth.products WHERE code='.$separator.$code.$separator.'AND active=1';
     return executeQuerySelect($productsQuery);
 }
