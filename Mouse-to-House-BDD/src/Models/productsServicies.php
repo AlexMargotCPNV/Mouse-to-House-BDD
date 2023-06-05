@@ -10,20 +10,20 @@
  * Source       :   https://bitbucket.org/pba_cpnv/151-2019_pba
  */
 
-require_once 'model/dbConnector.php';
+require_once 'dbConnector.php';
 
 /**
  * This function is designed to get all active mice
  * @return array : containing all information about mice. Array can be empty.
  */
-function getMouse(){
-    $productQuery = 'SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products';
-    return executeQuerySelect($productQuery);
+function getMice(){
+    $productsQuery = 'SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products';
+    return executeQuerySelect($productsQuery);
 }
 
-function getMice($code)
+function getMouse($code)
 {
     $separator = '\'';
-    $productsQuery = 'SELECT code, brand, model, price_francs, image_path FROM mth.products WHERE code='.$separator.$code.$separator.'AND active=1';
-    return executeQuerySelect($productsQuery);
+    $productQuery = 'SELECT code, brand, model, price_francs, image_path FROM mth.products WHERE code='.$separator.$code.$separator.'AND active=1';
+    return executeQuerySelect($productQuery);
 }

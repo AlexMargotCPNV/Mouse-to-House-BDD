@@ -26,7 +26,8 @@ function dispatch($bag)
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/items$/', $bag['route'])) {
-        $bag['view'] = 'views/site/itemsPage';
+        //$bag['view'] = 'views/site/itemsPage';
+        $bag['handler'] = 'controllers/site/products';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/profil$/', $bag['route'])) {

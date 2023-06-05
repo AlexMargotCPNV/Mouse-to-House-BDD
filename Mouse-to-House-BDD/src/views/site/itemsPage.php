@@ -1,9 +1,7 @@
 <?php $title="Produits";
 
-// a faire : remplacer la ligne d'en dessous par une requete dirrection la bddet donc adapter le code en fonction de ce changement
-$file = fopen('Data/items.csv', 'r');
+getMice();
 
-// Si le fichier a été trouvé alors affiché les produits
 if ($file !== FALSE) {
     echo "<table style='width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px'>";
     echo "<tr>";
