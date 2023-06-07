@@ -1,6 +1,7 @@
 <?php $title="Produits";
 
-getMice();
+$mice = $data['mice'];
+$file = true;
 
 if ($file !== FALSE) {
     echo "<table style='width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px'>";
@@ -27,16 +28,15 @@ if ($file !== FALSE) {
     echo "</tr>";
 
     // Boucler jusqu'à ce que tous les produits soient affichés
-    while (($data = fgetcsv($file, 100, ',')) !== FALSE) {
-        if ($data[7] == '1') {
+    foreach ($mice as $mouse) {
             echo "<tr>";
-            echo "<td>" . $data[0] . "</td>";
-            echo "<td>" . $data[1] . "</td>";
-            echo "<td>" . $data[2] . "</td>";
-            echo "<td>" . $data[4] . "</td>";
-            echo "<td>" . $data[5] . " CHF</td>";
-            echo "<td>" . $data[6] . "</td>";
-            $image = $data[9];
+            echo "<td>" . $mouse["code"] . "</td>";
+            echo "<td>" . $mouse["brand"] . "</td>";
+            echo "<td>" . $mouse["model"] . "</td>";
+            echo "<td>" . $mouse["number_available"] . "</td>";
+            echo "<td>" . $mouse["price_francs"] . " CHF</td>";
+            echo "<td>" . $mouse["type"] . "</td>";
+            $image = $mouse["image_path"];
             ?>
             <td><img class='itemInTable' src='<?= $image ?>'/></td>
             <td>
@@ -74,7 +74,5 @@ if ($file !== FALSE) {
             }
             echo "</tr>";
         }
-    }
     echo "</table>";
-    fclose($file);
 }
