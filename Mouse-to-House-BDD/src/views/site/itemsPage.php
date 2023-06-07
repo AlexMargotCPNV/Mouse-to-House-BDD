@@ -40,7 +40,7 @@ if ($file !== FALSE) {
             ?>
             <td><img class='itemInTable' src='<?= $image ?>'/></td>
             <td>
-                <a class="boutonsItems" type="submit" style="padding: 13px 30px 13px 30px" href="index.php?action=item&code=<?= $data[0]?>"
+                <a class="boutonsItems" type="submit" style="padding: 13px 30px 13px 30px" href="item&code=<?= $mouse['code']?>"
                 <form style="background-color: #2259ff" method="get" type="submit">Détails</form>
             </td>
             <td>

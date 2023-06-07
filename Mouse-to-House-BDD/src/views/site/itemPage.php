@@ -2,39 +2,46 @@
 
 if (isset($_GET['code'])) {
     $code = $_GET['code'];
-    $item = getItem($code);
+    $mouse = getMouse($code);
 
-if ($item !== false) {?>
-    <article>
-        <header>
-            <h2><?= $item['code'] ?></h2>
-            <div class="tab-content">
-                <div class="">
-                    <div class="span12"><h4><strong><?= $item['marque'] ?> - <?= $item['modele'] ?></strong></h4></div><br>
-                    <div class="span3">Disponibilité : <?= $item['disponible'] ?></div><br>
-                    <div class="span3">Prix : <strong><?= $item['prix'] ?></strong></div><br>
-                    <div class="span3">Type : <?= $item['type'] ?></div><br>
-                    <div class="span3">Poids : <?= $item['poid'] ?></div><br>
-                    <div class="span3">Description : <?= $item['description'] ?></div><br>
+    if ($mouse !== false) { ?>
+        <article>
+            <header>
+                <h2><?= $mouse['code'] ?></h2>
+                <div class="tab-content">
+                    <div class="">
+                        <div class="span12"><h4><strong><?= $mouse['brand'] ?> - <?= $mouse['model'] ?></strong></h4>
+                        </div>
+                        <br>
+                        <div class="span3">Disponibilité : <?= $mouse['number_available'] ?></div>
+                        <br>
+                        <div class="span3">Prix : <strong><?= $mouse['price_francs'] ?></strong></div>
+                        <br>
+                        <div class="span3">Type : <?= $mouse['type'] ?></div>
+                        <br>
+                        <div class="span3">Poids : <?= $mouse['weight_grams'] ?></div>
+                        <br>
+                        <div class="span3">Description : <?= $mouse['description'] ?></div>
+                        <br>
+                    </div>
+
+                    <div>
+                        <div class="thumbnail"><p><img src='<?= $mouse['image_path'] ?>' style="width:50%"></p></div>
+                    </div>
+                    <div>
+                        <form class="AddToCartItem" method="post" action="itemToCart">
+                            <input type="submit" value="Ajouter au panier"/>
+                        </form>
+                    </div>
                 </div>
-
-                <div>
-                    <div class="thumbnail"><p><img src='<?= $item['Image'] ?>' style="width:50%"></p></div>
-                </div>
-                <div>
-                    <form class="AddToCartItem" method="post" action="index.php?action=itemToCart">
-                        <input type="submit" value="Ajouter au panier"/>
-                    </form>
-                </div>
-            </div>
-            <br>
-        </header>
-    </article>
-    <?php
+                <br>
+            </header>
+        </article>
+        <?php
 
 
-}}
-else {
+    }
+} else {
     echo "Produit non trouvé";
 }
 ?>
