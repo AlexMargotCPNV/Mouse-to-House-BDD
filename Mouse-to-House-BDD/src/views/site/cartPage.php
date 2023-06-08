@@ -29,7 +29,7 @@ if (isset($_SESSION['username'])) {
     //print_r($_SESSION['username']);
 }?>
 
-<a href="itemspage" style="margin-right: auto;margin-left: auto;margin-bottom: 30px">Pour plus de produit cliquez ici !</a>
+<a href="items" style="margin-right: auto;margin-left: auto;margin-bottom: 30px">Pour plus de produit cliquez ici !</a>
 
 <div>
     <form class="Checkout" method="post" action="checkout">
