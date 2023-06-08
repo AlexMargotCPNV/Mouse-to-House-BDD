@@ -1,23 +1,24 @@
 <?php $title = "Accueil";
 echo "<h1 class='pageTitle' style='font-size: 45px'>Accueil</h1>";
 
-$codes = array($bag['data']['mouseCode']);
+
+$codes = $bag['data']['randomMouseCode'];
+$mouse = $bag['data']['mouse'];
 
 if (!empty($codes)) {
     $randCode = $codes[array_rand($codes)];
-    $item = getMouse($randCode);
 
-// Afficher le produit choisi aléatoire
+// Afficher les informations du produit choisi aléatoirement
     if ($mouse !== false) {
-        if (isset($mouse['Image']) && isset($mouse['brand']) && isset($mouse['modele']) && isset($mouse['prix'])) {
+        if (isset($mouse['image_path']) && isset($mouse['brand']) && isset($mouse['model']) && isset($mouse['price_francs'])) {
             ?>
             <p id="hometext">La <b><?php echo $mouse['model'] ?></b> de chez <b><?php echo $mouse['brand'] ?></b> est
                 disponible au prix de <strong><?php echo $mouse['price_francs'] ?> CHF !</strong></p>
-        <a id="details" href="tem&code=<?= $mouse['code'] ?>">
+        <a id="details" href="item/<?= $mouse['code'] ?>">
             <img class="HomePageImg" src="<?php echo $mouse['image_path']; ?>" alt="Image de la souris">
             </a><?php
             ?>
-            <a id="lienproduits" href="=items">Découvrez tous nos produits ici !</a><?php
+            <a id="lienproduits" href="items">Découvrez tous nos produits ici !</a><?php
 
         } else {    // Sinon afficher un message d'erreur
             echo "Article non trouvé";

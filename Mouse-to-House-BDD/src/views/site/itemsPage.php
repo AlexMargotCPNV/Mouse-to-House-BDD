@@ -1,6 +1,9 @@
 <?php $title="Produits";
 
 $mice = $bag['data']['mice'];
+?>
+
+<?php
 
 if ($mice !== FALSE) {
     echo "<table style='width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px'>";

@@ -27,3 +27,8 @@ function getMouse($code)
     $productQuery = 'SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products WHERE code='.$separator.$code.$separator.' AND active = 1';
     return executeQuerySelect($productQuery);
 }
+
+function getRandomMouseCode(){
+    $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1';
+    return executeQuerySelect($randomProductQuery);
+}
