@@ -1,39 +1,29 @@
 <?php $title = "Accueil";
 echo "<h1 class='pageTitle' style='font-size: 45px'>Accueil</h1>";
 
-// Ouvrir le fichier des produits pour pouvoir le lire
-//$file = fopen('Data/items.csv', 'r');
+$codes = array($bag['data']['mouseCode']);
 
-// Stockage des codes où $file[7] = 1 dans un tableau $codes
-//$codes = array();
-//while (($data = fgetcsv($file, 1000, ",")) !== FALSE) {
-   // if ($data[7] == 1) {
-   //     array_push($codes, $data[0]);
-   // }
-//}
+if (!empty($codes)) {
+    $randCode = $codes[array_rand($codes)];
+    $item = getMouse($randCode);
 
-// Choix aléatoire d'un code parmi les codes stockés dans $codes
-//$randCode = $codes[array_rand($codes)];
+// Afficher le produit choisi aléatoire
+    if ($mouse !== false) {
+        if (isset($mouse['Image']) && isset($mouse['brand']) && isset($mouse['modele']) && isset($mouse['prix'])) {
+            ?>
+            <p id="hometext">La <b><?php echo $mouse['model'] ?></b> de chez <b><?php echo $mouse['brand'] ?></b> est
+                disponible au prix de <strong><?php echo $mouse['price_francs'] ?> CHF !</strong></p>
+        <a id="details" href="tem&code=<?= $mouse['code'] ?>">
+            <img class="HomePageImg" src="<?php echo $mouse['image_path']; ?>" alt="Image de la souris">
+            </a><?php
+            ?>
+            <a id="lienproduits" href="=items">Découvrez tous nos produits ici !</a><?php
 
-// Redirection vers la page itemPage.php correspondant au code choisi
-
-//$randNum = $codes[array_rand($codes)];
-//$item = getItem($randNum);
-
-// Afficher le produit choisi aléatoirement s'il a été trouvé
-//if ($item !== false) {
- //   if (isset($item['Image']) && isset($item['marque']) && isset($item['modele']) && isset($item['prix'])) {
-        ?>
-    <p id="hometext">La <b><?php // echo $item['modele']?></b> de chez <b><?php //echo $item['marque']?></b> est disponible au prix de <strong><?php //echo $item['prix']?>  CHF !</strong></p>
-   <a id="details" href="index.php?action=item&code=<? //= $item['code'] ?>">
-        <img class="HomePageImg" src="<?php //echo $item['Image']; ?>" alt="Image de la souris">
-        </a><?php
-        ?>
-        <a id="lienproduits" href="index.php?action=items">Découvrez tous nos produits ici !</a><?php
-
- //   } else {    // Sinon afficher un message d'erreur
-  //      echo "Article non trouvé";
-  //  }
-
-//?>
-
+        } else {    // Sinon afficher un message d'erreur
+            echo "Article non trouvé";
+        }
+    }
+} else { //si le tableau "codes" est vide affichage d'une erreur
+    echo "une erreur est survenue, essayer de relancer la page, si l'erreur persiste, merci de nous envoyer un message au traver de la page d'aide";
+}
+?>
