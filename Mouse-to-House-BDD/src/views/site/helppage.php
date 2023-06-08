@@ -3,9 +3,9 @@
     <?php
     // Si un utilisateur n'est pas connecté alors renvoyer l'utilisateur à la page de connexion
     if(!isset($_SESSION['auth'])) {
-        echo '<form style="box-shadow: none;margin-top: 50px" action="index.php?action=login" id="formSignaler" method="post">';
+        echo '<form style="box-shadow: none;margin-top: 50px" action="login" id="formSignaler" method="post">';
     } else {    // Sinon envoyer le message de demande de l'aide
-        echo '<form style="box-shadow: none;margin-top: 50px" action="index.php?action=helpSend" id="formSignaler" method="post">';
+        echo '<form style="box-shadow: none;margin-top: 50px" action="helpSend" id="formSignaler" method="post">';
     }
     ?>
         <label id="Problème"><h4>Avez-vous un problème ?</h4></label><br>

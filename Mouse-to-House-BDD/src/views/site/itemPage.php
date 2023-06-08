@@ -1,32 +1,32 @@
 <?php $title = "Produit";
 
-if (isset($_GET['code'])) {
-    $code = $_GET['code'];
-    $mouse = getMouse($code);
+if (isset($bag['data']['mouse'])) {
+
+    $mouse = $bag['data']['mouse'];
 
     if ($mouse !== false) { ?>
         <article>
             <header>
-                <h2><?= $mouse['code'] ?></h2>
+                <h2><?= $mouse[0]['code'] ?></h2>
                 <div class="tab-content">
                     <div class="">
-                        <div class="span12"><h4><strong><?= $mouse['brand'] ?> - <?= $mouse['model'] ?></strong></h4>
+                        <div class="span12"><h4><strong><?= $mouse[0]['brand'] ?> - <?= $mouse[0]['model'] ?></strong></h4>
                         </div>
                         <br>
-                        <div class="span3">Disponibilité : <?= $mouse['number_available'] ?></div>
+                        <div class="span3">Disponibilité : <?= $mouse[0]['number_available'] ?></div>
                         <br>
-                        <div class="span3">Prix : <strong><?= $mouse['price_francs'] ?></strong></div>
+                        <div class="span3">Prix : <strong><?= $mouse[0]['price_francs'] ?>.- CHF</strong></div>
                         <br>
-                        <div class="span3">Type : <?= $mouse['type'] ?></div>
+                        <div class="span3">Type : <?= $mouse[0]['type'] ?></div>
                         <br>
-                        <div class="span3">Poids : <?= $mouse['weight_grams'] ?></div>
+                        <div class="span3">Poids : <?= $mouse[0]['weight_grams'] ?></div>
                         <br>
-                        <div class="span3">Description : <?= $mouse['description'] ?></div>
+                        <div class="span3">Description : <?= $mouse[0]['description'] ?></div>
                         <br>
                     </div>
 
                     <div>
-                        <div class="thumbnail"><p><img src='<?= $mouse['image_path'] ?>' style="width:50%"></p></div>
+                        <div class="thumbnail"><p><img src='<?= $mouse[0]['image_path'] ?>' style="width:50%"></p></div>
                     </div>
                     <div>
                         <form class="AddToCartItem" method="post" action="itemToCart">
@@ -38,8 +38,6 @@ if (isset($_GET['code'])) {
             </header>
         </article>
         <?php
-
-
     }
 } else {
     echo "Produit non trouvé";

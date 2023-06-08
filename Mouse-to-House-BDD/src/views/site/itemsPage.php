@@ -1,9 +1,8 @@
 <?php $title="Produits";
 
-$mice = $data['mice'];
-$file = true;
+$mice = $bag['data']['mice'];
 
-if ($file !== FALSE) {
+if ($mice !== FALSE) {
     echo "<table style='width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;margin-bottom: 50px'>";
     echo "<tr>";
     echo "<th><h4>Code</h4></th>";
@@ -40,18 +39,19 @@ if ($file !== FALSE) {
             ?>
             <td><img class='itemInTable' src='<?= $image ?>'/></td>
             <td>
-                <a class="boutonsItems" type="submit" style="padding: 13px 30px 13px 30px" href="item&code=<?= $mouse['code']?>"
+                <a class="boutonsItems" type="submit" style="padding: 13px 30px 13px 30px" href="item/<?= $mouse['code']?>"
                 <form style="background-color: #2259ff" method="get" type="submit">Détails</form>
             </td>
             <td>
                 <?php
+                $bag['data']['mouseCode'] = $mouse['code'];
                 // Si un utilisateur est connecté alors ajouter le produit à son panier
                 if (isset($_SESSION['auth']) && $_SESSION['auth'] == 1) {
                     ?>
-                    <a class="boutonsItems" type="submit" href="index.php?action=itemToCart&code=<?= $data[0]?>"
+                    <a class="boutonsItems" type="submit" href="itemToCart/code=<?= $mouse['code']?>"
                     <?php
                 } else {    // Sinon renvoyer l'utilisateur à la page de connexion
-                    echo '<a class="boutonsItems" type="submit" href="index.php?action=login"';
+                    echo '<a class="boutonsItems" type="submit" href="login"';
                 }
                 echo '<form style="background-color: #2259ff" method="post" type="submit">Ajouter au panier</form>';
                 ?>
@@ -62,11 +62,11 @@ if ($file !== FALSE) {
                 echo " ";
             } elseif ($_SESSION['isUserAdmin'] == 1) {
                 echo '<td>';?>
-                <a class="boutonsItems" type="submit" href="index.php?action=item&code=<?= $data[0]?>"
+                <a class="boutonsItems" type="submit" href="item/<?= $mouse['code']?>"
                 <?php echo '<form style="background-color: #2259ff" method="post" type="submit">Modifier</form>';
                 echo '</td>';
                 echo '<td>';
-                echo '<a class="boutonsItems" type="submit" href="index.php?action=NotYetImplemented"';
+                echo '<a class="boutonsItems" type="submit" href="NotYetImplemented"';
                 echo '<form style="background-color: #2259ff" method="post" type="submit">Supprimer</form></td>';
                 echo '</td>';
             } else {    // Sinon ne rien afficher
