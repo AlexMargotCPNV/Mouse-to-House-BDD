@@ -26,7 +26,7 @@ if (isset($bag['data']['mouse'])) {
                     </div>
 
                     <div>
-                        <div class="thumbnail"><p><img src='\<?=$mouse[0]['image_path'] ?>' style="width:50%"></p></div>
+                        <div class="thumbnail"><p><img src='\<?=$mouse[0]['image_path'] ?>' style="width:25%"></p></div>
                     </div>
                     <div>
                         <form class="AddToCartItem" method="post" action="itemToCart">

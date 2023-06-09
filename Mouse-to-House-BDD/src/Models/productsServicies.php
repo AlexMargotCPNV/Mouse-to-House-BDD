@@ -29,6 +29,6 @@ function getMouse($code)
 }
 
 function getRandomMouseCode(){
-    $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1';
+    $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1 ORDER BY RAND() LIMIT 1';
     return executeQuerySelect($randomProductQuery);
 }
