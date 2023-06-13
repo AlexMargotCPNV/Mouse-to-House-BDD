@@ -16,10 +16,18 @@
         <ul class="navbar-nav nav-left">
             <li class="nav-item">
                 <a class="nav-link active" href="/"><img class="logo" src="/images/MouseToHouse_Logo.png"></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/items">Produits</a>
-            </li>
+
+                <?php
+                if (isset($bag['data']['user']['isUserAdmin']) && $bag['data']['user']['isUserAdmin'] == 1){
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="/adminItems">Produits</a>';
+                    echo '</li>';
+                }else {
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="/userItems">Produits</a>';
+                    echo '</li>';
+                }
+                ?>
             <li class="nav-item">
                 <a class="nav-link" href="/help">Aide</a>
             </li>
@@ -30,15 +38,15 @@
             </li>
             <li class="nav-item">
                 <?php
-                if(!isset($_SESSION['auth'])) {
+                if (!isset($_SESSION['auth'])) {
                     echo '<a class="nav-link" href="/login">Se connecter</a>';
                 } else {
-                    echo '<a class="nav-link" href="/profile">'. $_SESSION['username'] .'</a>';
+                    echo '<a class="nav-link" href="/profile">' . $_SESSION['username'] . '</a>';
                 } ?>
             </li>
             <li class="nav-item">
                 <?php
-                if(!isset($_SESSION['auth'])) {
+                if (!isset($_SESSION['auth'])) {
                     echo '<a class="nav-link" href="/signin">Créer un compte</a>';
                 } else {
                     echo '<a class="nav-link" href="/logout">Se deconnecter</a>';

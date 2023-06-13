@@ -12,10 +12,6 @@
 
 require_once 'dbConnector.php';
 
-/**
- * This function is designed to get all active mice
- * @return array : containing all information about mice. Array can be empty.
- */
 function getMice(){
     $productsQuery = 'SELECT code, brand, model, number_available, price_francs, image_path, type FROM mth.products WHERE active = 1';
     return executeQuerySelect($productsQuery);
@@ -30,5 +26,5 @@ function getMouse($code)
 
 function getRandomMouseCode(){
     $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1 ORDER BY RAND() LIMIT 1';
-    return executeQuerySelect($randomProductQuery);
+    return executeQuerySelectSingle($randomProductQuery);
 }

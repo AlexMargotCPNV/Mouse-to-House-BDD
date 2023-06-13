@@ -1,5 +1,5 @@
 <?php
-function executeQuerySelect($query){
+function executeQuerySelect($query):array{
     $queryResult = null;
 
     $dbConnexion = openDBConnexion();
@@ -11,6 +11,20 @@ function executeQuerySelect($query){
     }
     $dbConnexion = null;
     return $queryResult;
+}
+function executeQuerySelectSingle($query):string{
+    $queryResult = null;
+
+    $dbConnexion = openDBConnexion();
+    if ($dbConnexion != null)
+    {
+        $statement = $dbConnexion->prepare($query);
+        $statement->execute();
+        $queryResult = $statement->fetchAll();
+    }
+    $dbConnexion = null;
+    $queryResultSingle = $queryResult[0]['code'];
+    return $queryResultSingle;
 }
 
 function executeQueryInsert($query){

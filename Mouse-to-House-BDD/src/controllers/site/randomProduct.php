@@ -3,7 +3,8 @@
 require_once SOURCE_DIR.'/models/productsServicies.php';
 
 $bag['data'] = [];
-$tempCode = getMouse(getRandomMouseCode());
+$tempCode = getRandomMouseCode();
 $bag['data']['mouse'] = getMouse($tempCode);
 $bag['view'] = 'views/site/homePage';
 return $bag;
+ 
