@@ -23,9 +23,9 @@ function getCurrentUser()
     return isset($_SESSION['current_user']) ? findUser($_SESSION['current_user']) : null;
 }
 
-function loginUser($username, $password)
+function loginUser($userEmail, $password)
 {
-    if ($user = findUser($username)) {
+    if ($user = findUser($userEmail)) {
         // Check credential
         if (password_verify($password, $user['password'])) {
             $_SESSION['current_user'] = $user['username'];

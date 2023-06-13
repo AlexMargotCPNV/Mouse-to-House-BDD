@@ -2,7 +2,7 @@
 <div id="container">
     <!-- zone de connexion -->
 
-    <form action="index.php?action=login" method="POST">
+    <form action="login" method="POST">
         <h1>Connexion</h1>
 
         <label><b>E-mail</b></label>

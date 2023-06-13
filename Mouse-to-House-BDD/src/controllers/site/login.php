@@ -2,11 +2,15 @@
 
 $bag['data'] = [];
 
-$username = trim($_POST['username']);
+$userEmail = $_POST['email'];
 $password = $_POST['password'];
-
+/**
+    print_r($_POST['email']);
+    echo "<br>";
+    print_r($_POST['password']);
+ **/
 // Validate fields
-if (empty($username)) {
+if (empty($userEmail)) {
     $bag['data']['username_error'] = "Votre identifiant ne doit pas être vide";
 }
 if (empty($password)) {
@@ -16,7 +20,7 @@ if (empty($password)) {
 // Valid?
 if (empty($bag['data'])) {
     // Yep, login the user
-    if (loginUser($username, $password)) {
+    if (loginUser($userEmail, $password)) {
         $bag['response_headers'] = ['Location' => '/'];
         return $bag;
     }
@@ -24,5 +28,5 @@ if (empty($bag['data'])) {
 }
 
 // Invalid, render the view
-$bag['view'] = 'views/site/loginPage';
+$bag['view'] = 'views/site/profilePage';
 return $bag;

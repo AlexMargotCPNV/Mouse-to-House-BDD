@@ -79,7 +79,7 @@ function dispatch($bag)
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/login$/', $bag['route'])) {
         if ($bag['method'] == 'POST') {
-            $bag['handler'] = 'controllers/site/loginPage';
+            $bag['handler'] = 'controllers/site/login';
         } elseif ($bag['method'] == 'GET') {
             $bag['view'] = 'views/site/loginPage';
         }

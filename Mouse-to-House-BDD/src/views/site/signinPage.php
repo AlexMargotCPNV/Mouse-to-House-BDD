@@ -2,7 +2,7 @@
 <div id="container">
     <!-- zone de connexion -->
 
-    <form action="index.php?action=SaveNewUserData" method="POST">
+    <form action="SaveNewUserData" method="POST">
         <h1>Créer un compte</h1>
 
         <label><b>Nom d'utilisateur</b></label>
@@ -31,6 +31,6 @@
     </form>
     <div class="accountLink">
         <a>Vous avez dèja un compte ?<br></a>
-        <a href="index.php?action=login"> Cliquez ici.</link></a>
+        <a href="login"> Cliquez ici.</link></a>
     </div>
 </div>

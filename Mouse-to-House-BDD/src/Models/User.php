@@ -1,6 +1,7 @@
 <?php
 
 define('USERS_DATA_PATHNAME', BASE_DIR.'/users.json');
+require_once 'dbConnector.php';
 
 /**
  ** User:
@@ -26,6 +27,11 @@ function findUser($username)
         // Any error will return a null object, so asking for a non existant user throws a PATH_NOT_FOUND error thus returns null.
         return null;
     }
+}
+function getUserPwd($userEmailAddress){
+    $separator = '\'';
+    $userPwdQuerry = 'SELECT hashed_password FROM mth.users WHERE email ='.$separator.$userEmailAddress.$separator.'';
+    return executeQuerySelect($userPwdQuerry);
 }
 
 function isLoginCorrect($userEmailAddress, $userPwd):bool{
