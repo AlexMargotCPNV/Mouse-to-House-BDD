@@ -24,8 +24,8 @@ function dispatch($bag)
         $bag['handler'] = 'controllers/site/randomProduct';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/help$/', $bag['route'])) {
-        $bag['view'] = 'views/site/helpPage';
+    elseif (preg_match('/^\/help$/', $bag['route']) && $bag['method'] == 'POST') {
+        $bag['handler'] = 'controllers/site/help';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/userItems$/', $bag['route'])) {
