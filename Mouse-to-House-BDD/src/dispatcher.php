@@ -5,6 +5,8 @@
 // Date:    2022-08-27, 03-05-2014
 //=============================================================================
 
+require_once SOURCE_DIR.'/auth.php';
+
 //=============================================================================
 // Decode the given route and return the bag augmented with:
 //    handler        string  PHP file name that should handle this request (without php extension).
@@ -15,6 +17,7 @@ function dispatch($bag)
 
     // If any match defines a 'view', it should use our one and only layout.
     $bag['layout'] = 'views/layout';
+    $bag['current_user'] = getCurrentUser();
 
     //-----------------------------------------------------------------------------
     if (preg_match('/^\/?$/', $bag['route'])) {

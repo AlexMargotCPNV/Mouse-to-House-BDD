@@ -28,5 +28,5 @@ if (empty($bag['data'])) {
 }
 
 // Invalid, render the view
-$bag['view'] = 'views/site/profilePage';
+$bag['view'] = 'views/site/loginPage';
 return $bag;

@@ -2,7 +2,6 @@
 
 define('USERS_DATA_PATHNAME', BASE_DIR.'/users.json');
 require_once 'dbConnector.php';
-
 /**
  ** User:
  **   username:     string  User identifier
@@ -20,8 +19,8 @@ function findUser($username)
     try {
         //return json_decode(file_get_contents(USERS_DATA_PATHNAME), true)[$username] ?? null;
         $separator = '\'';
-        $userQuery = 'SELECT email, hashed_password FROM mth.users WHERE username ='.$separator.$username.$separator.'';
-        return executeQuerySelect($userQuery);
+        $userQuery = 'SELECT username, surname, firstname, email, phone_number, hashed_password, admin FROM mth.users WHERE username ='.$separator.$username.$separator.'';
+        return executeQuerySelect($userQuery)[0];
     }
     catch (Exception $e) {
         // Any error will return a null object, so asking for a non existant user throws a PATH_NOT_FOUND error thus returns null.

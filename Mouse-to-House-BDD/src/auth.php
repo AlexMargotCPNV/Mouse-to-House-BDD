@@ -27,8 +27,9 @@ function loginUser($userEmail, $password)
 {
     if ($user = findUser($userEmail)) {
         // Check credential
-        if (password_verify($password, $user['password'])) {
+        if (password_verify($password, $user['hashed_password'])) {
             $_SESSION['current_user'] = $user['username'];
+            $bag['loginFailed'] = 2;
         } else {
             $user = null;
         }

@@ -38,15 +38,15 @@
             </li>
             <li class="nav-item">
                 <?php
-                if (!isset($_SESSION['auth'])) {
+                if (!isset($bag['current_user'])) {
                     echo '<a class="nav-link" href="/login">Se connecter</a>';
                 } else {
-                    echo '<a class="nav-link" href="/profile">' . $_SESSION['username'] . '</a>';
+                    echo '<a class="nav-link" href="/profil">' . $bag['current_user']['username'] . '</a>';
                 } ?>
             </li>
             <li class="nav-item">
                 <?php
-                if (!isset($_SESSION['auth'])) {
+                if (!isset($bag['current_user'])) {
                     echo '<a class="nav-link" href="/signin">Créer un compte</a>';
                 } else {
                     echo '<a class="nav-link" href="/logout">Se deconnecter</a>';
