@@ -245,3 +245,7 @@ th, td {
     width: 60%;
     height: auto;
 }
+#LoginFailed{
+    font-size: 20px;
+    text-align: center;
+}

@@ -4,11 +4,7 @@ $bag['data'] = [];
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-/**
-    print_r($_POST['email']);
-    echo "<br>";
-    print_r($_POST['password']);
- **/
+
 // Validate fields
 if (empty($username)) {
     $bag['data']['username_error'] = "Votre identifiant ne doit pas être vide";
@@ -28,5 +24,6 @@ if (empty($bag['data'])) {
 }
 
 // Invalid, render the view
+echo '<a class="LoginFailed" style="color: red"><strong>Identifiants de connection éronné</strong></a>';
 $bag['view'] = 'views/site/loginPage';
 return $bag;

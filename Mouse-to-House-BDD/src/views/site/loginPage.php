@@ -12,9 +12,6 @@
         <input type="password" placeholder="Entrer votre mot de passe" name="password" required>
 
         <input type="submit" id='submit' value='Se connecter'>
-        <?php if ($bag['loginFailed'] == 2) : ?>
-            <h5><span style="color:red">Username ou mot de passe incorrect!</span></h5>
-        <?php  endif ?>
 
     </form>
     <div class="accountLink">

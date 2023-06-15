@@ -88,10 +88,18 @@ function dispatch($bag)
             $bag['view'] = 'views/site/loginPage';
         }
     }
+    //---------------Fonction Non terminée--------------------------------------------------------------
+    elseif (preg_match('/^\/modifyData$/', $bag['route'])) {
+        if ($bag['method'] == 'POST') {
+            $bag['handler'] = 'controllers/site/';
+        } elseif ($bag['method'] == 'GET') {
+            $bag['view'] = 'views/site/signinPage';
+        }
+    }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/signin$/', $bag['route'])) {
         if ($bag['method'] == 'POST') {
-            $bag['handler'] = 'controllers/site/signinPage';
+            $bag['handler'] = 'controllers/site/myRegister';
         } elseif ($bag['method'] == 'GET') {
             $bag['view'] = 'views/site/signinPage';
         }

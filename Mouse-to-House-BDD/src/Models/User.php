@@ -15,7 +15,6 @@ require_once 'dbConnector.php';
 
 function findUser($username)
 {
-    // Read the user.dat file for the passed $username
     try {
         //return json_decode(file_get_contents(USERS_DATA_PATHNAME), true)[$username] ?? null;
         $separator = '\'';

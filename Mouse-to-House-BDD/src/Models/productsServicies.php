@@ -12,27 +12,44 @@
 
 require_once 'dbConnector.php';
 
-function getMice(){
+function getMice()
+{
     $productsQuery = 'SELECT code, brand, model, number_available, price_francs, image_path, type FROM mth.products WHERE active = 1';
     return executeQuerySelect($productsQuery);
+}
+
+function getAllMice()
+{
+    $allProductsQuery = 'SELECT code, brand, model, number_available, price_francs, image_path, type FROM mth.products ';
+    return executeQuerySelect($allProductsQuery);
 }
 
 function getMouse($code)
 {
     $separator = '\'';
-    $productQuery = 'SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products WHERE code='.$separator.$code.$separator.' AND active = 1';
+    $productQuery = 'SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products WHERE code=' . $separator . $code . $separator . ' AND active = 1';
     return executeQuerySelect($productQuery);
 }
 
-function getRandomMouseCode(){
+function getAdminMouse($code)
+{
+    $separator = '\'';
+    $productQuery = "SELECT code, brand, model, weight_grams, number_available, price_francs, active, description, image_path, type FROM mth.products WHERE code='.$separator.$code.$separator.'";
+    return executeQuerySelect($productQuery);
+}
+
+function getRandomMouseCode()
+{
     $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1 ORDER BY RAND() LIMIT 1';
     return executeQuerySelectSingle($randomProductQuery);
 }
 
-function isUserAdmin(){
+function isUserAdmin()
+{
     $separator = "\"";
     $userName = $_SESSION['current_user'];
     $username = "$userName";
     $isUserAdminQuery = "SELECT admin FROM mth.users WHERE username =$separator$username$separator ";
     return executeQuerySelect($isUserAdminQuery);
 }
+
