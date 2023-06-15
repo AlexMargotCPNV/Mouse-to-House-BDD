@@ -41,11 +41,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 DROP TABLE IF EXISTS `requests`;
 CREATE TABLE IF NOT EXISTS `requests` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `message` VARCHAR(500) NOT NULL,
-  `user_id` INT NOT NULL,
+  `message` TEXT NOT NULL,
+  `username` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-
+requests
 -- Dumping structure for table mth.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
