@@ -241,3 +241,7 @@ th, td {
     font-size: 20px;
     margin: 50px;
 }
+#itemImage{
+    width: 60%;
+    height: auto;
+}

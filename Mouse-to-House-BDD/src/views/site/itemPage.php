@@ -8,31 +8,38 @@ if (isset($bag['data']['mouse'])) {
         <article>
             <header>
                 <h2><?= $mouse[0]['code'] ?></h2>
-                <div class="tab-content">
-                    <div class="">
-                        <div class="span12"><h4><strong><?= $mouse[0]['brand'] ?> - <?= $mouse[0]['model'] ?></strong></h4>
-                        </div>
-                        <br>
-                        <div class="span3">Disponibilité : <?= $mouse[0]['number_available'] ?></div>
-                        <br>
-                        <div class="span3">Prix : <strong><?= $mouse[0]['price_francs'] ?>.- CHF</strong></div>
-                        <br>
-                        <div class="span3">Type : <?= $mouse[0]['type'] ?></div>
-                        <br>
-                        <div class="span3">Poids : <?= $mouse[0]['weight_grams'] ?></div>
-                        <br>
-                        <div class="span3">Description : <?= $mouse[0]['description'] ?></div>
-                        <br>
-                    </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="tab-content">
+                                <div class="span12"><h4><strong><?= $mouse[0]['brand'] ?>
+                                            - <?= $mouse[0]['model'] ?></strong></h4>
+                                </div>
+                                <br>
+                                <div class="span3">Disponibilité : <?= $mouse[0]['number_available'] ?></div>
+                                <br>
+                                <div class="span3">Prix : <strong><?= $mouse[0]['price_francs'] ?>.- CHF</strong>
+                                </div>
+                                <br>
+                                <div class="span3">Type : <?= $mouse[0]['type'] ?></div>
+                                <br>
+                                <div class="span3">Poids : <?= $mouse[0]['weight_grams'] ?></div>
+                                <br>
+                                <div class="span3">Description : <?= $mouse[0]['description'] ?></div>
+                                <br>
+                        </td>
+                        <th id="itemImage">
+                                <img id="imageInItem" src='\<?= $mouse[0]['image_path'] ?>' style="width:25%">
 
-                    <div>
-                        <div class="thumbnail"><p><img src='\<?=$mouse[0]['image_path'] ?>' style="width:25%"></p></div>
-                    </div>
-                    <div>
-                        <form class="AddToCartItem" method="post" action="itemToCart">
-                            <input type="submit" value="Ajouter au panier"/>
-                        </form>
-                    </div>
+
+                        </th>
+                    </tr>
+                </table>
+                <div>
+                    <form class="AddToCartItem" method="post" action="itemToCart">
+                        <input type="submit" value="Ajouter au panier"/>
+                    </form>
+                </div>
                 </div>
                 <br>
             </header>
