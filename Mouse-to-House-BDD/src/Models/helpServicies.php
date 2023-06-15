@@ -2,17 +2,14 @@
 
 $bag['view'] = 'views/site/helpPage';
 
-
 require_once 'dbConnector.php';
 
-function sendHelp()
+function sendHelp($message)
 {
-    $message = $_POST['message'];
+    $messageToInsert = $message;
+    $userRequesting = $_SESSION['current_user'];
 
-    $helpQuery = 'INSERT INTO message (message) VALUES (:message)';
-    $stmt = openDBConnexion()->prepare($helpQuery);
-    $stmt->bindParam(':message', $message);
-    $stmt->execute();
+    $helpQuery = "INSERT INTO mth.requests (message, username) VALUES ('$messageToInsert', '$userRequesting')";
 
     return executeQuerySelect($helpQuery);
 }
