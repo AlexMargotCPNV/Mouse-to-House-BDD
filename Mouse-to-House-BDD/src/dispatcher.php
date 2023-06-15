@@ -98,7 +98,7 @@ function dispatch($bag)
     }
 
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/logout$/', $bag['route']) && $bag['method'] == 'POST') {
+    elseif (preg_match('/^\/logout$/', $bag['route'])) {
         $bag['handler'] = 'controllers/site/logout';
     }
     //-----------------------------------------------------------------------------
