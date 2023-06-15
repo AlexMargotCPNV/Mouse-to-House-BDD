@@ -9,7 +9,7 @@
         <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
         <label><b>Nom</b></label>
-        <input type="text" placeholder="Entrer le nom" name="name" required>
+        <input type="text" placeholder="Entrer le nom" name="surname" required>
 
         <label><b>Prénom</b></label>
         <input type="text" placeholder="Entrer le prénom" name="firstname" required>
