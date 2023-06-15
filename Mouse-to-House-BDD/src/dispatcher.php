@@ -47,7 +47,7 @@ function dispatch($bag)
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/profil$/', $bag['route'])) {
-        $bag['view'] = 'views/site/profilePage';
+        $bag['handler'] = 'controllers/site/profil';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/checkout$/', $bag['route'])) {
