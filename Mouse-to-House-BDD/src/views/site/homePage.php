@@ -15,7 +15,7 @@ if (isset($mouse[0]['image_path']) && isset($mouse[0]['brand']) && isset($mouse[
     </a>
     <?php
     ?>
-    <a id="lienproduits" href="userItems">Découvrez tous nos produits ici !</a>
+    <a id="lienproduits" href="Items">Découvrez tous nos produits ici !</a>
     <?php
 } else {    // Sinon afficher un message d'erreur
     echo "<br>Article non trouvé";
