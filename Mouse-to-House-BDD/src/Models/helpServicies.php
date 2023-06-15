@@ -1,6 +1,6 @@
 <?php
 
-$bag['view'] = 'views/site/helppage';
+$bag['view'] = 'views/site/helpPage';
 
 
 require_once 'dbConnector.php';

@@ -61,10 +61,6 @@ function dispatch($bag)
         $bag['view'] = 'views/site/cartPage';
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/?$/', $bag['route']) && $bag['method'] == 'POST') {
-        $bag['handler'] = 'controllers/site/helpController';
-    }
-    //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/?$/', $bag['route'])) {
         if (isset($_REQUEST['code'])) {
             $bag = $_REQUEST['code'];

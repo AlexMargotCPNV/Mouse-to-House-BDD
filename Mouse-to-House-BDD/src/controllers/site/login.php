@@ -2,7 +2,7 @@
 
 $bag['data'] = [];
 
-$userEmail = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 /**
     print_r($_POST['email']);
@@ -10,7 +10,7 @@ $password = $_POST['password'];
     print_r($_POST['password']);
  **/
 // Validate fields
-if (empty($userEmail)) {
+if (empty($username)) {
     $bag['data']['username_error'] = "Votre identifiant ne doit pas être vide";
 }
 if (empty($password)) {
@@ -20,7 +20,7 @@ if (empty($password)) {
 // Valid?
 if (empty($bag['data'])) {
     // Yep, login the user
-    if (loginUser($userEmail, $password)) {
+    if (loginUser($username, $password)) {
         $bag['response_headers'] = ['Location' => '/'];
         return $bag;
     }
