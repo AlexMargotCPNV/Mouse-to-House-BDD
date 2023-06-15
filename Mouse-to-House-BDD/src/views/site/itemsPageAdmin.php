@@ -17,7 +17,6 @@ if ($mice !== FALSE) { ?>
             <th><h4>Détails</h4></th>
             <th><h4>Ajouter au panier</h4></th>
             <th><h4>Modifier</h4></th>
-            <th><h4>Supprimer</h4></th>
         </tr>
 
     <?php
@@ -42,12 +41,8 @@ if ($mice !== FALSE) { ?>
                 <form style="background-color: #2259ff" method="post" type="submit">Ajouter au panier</form>
             </td>
             <td>
-                <a class="boutonsItems" type="submit" href="item/<?= $mouse['code']?>"
+                <a class="boutonsItems" type="submit" href="modifyItem/<?= $mouse['code']?>"
                 <form style="background-color: #2259ff" method="post" type="submit">Modifier</form>
-            </td>
-            <td>
-                <a class="boutonsItems" type="submit" href="NotYetImplemented"
-                <form style="background-color: #2259ff" method="post" type="submit">Supprimer</form></td>
             </td>
         </tr>
         <?php

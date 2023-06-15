@@ -41,6 +41,11 @@ function dispatch($bag)
         $bag['handler'] = 'controllers/site/product';
     }
     //-----------------------------------------------------------------------------
+    elseif (preg_match('/^\/modifyItem\/(\w+)$/', $bag['route'], $matches)) {
+        $bag['code'] = $matches[1];
+        $bag['handler'] = 'controllers/site/adminProduct';
+    }
+    //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/profil$/', $bag['route'])) {
         $bag['view'] = 'views/site/profilePage';
     }
