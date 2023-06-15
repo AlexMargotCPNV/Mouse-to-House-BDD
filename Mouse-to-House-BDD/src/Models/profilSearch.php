@@ -8,7 +8,7 @@ function userInformation(){
     $userRequesting = $_SESSION['current_user'];
     $separator = "\"";
 
-    $profilQuery = "SELECT username, surname, firstname, email FROM mth.users WHERE username = $separator.$userRequesting.$separator";
+    $profilQuery = "SELECT username, surname, firstname, email FROM mth.users WHERE username = ($userRequesting)";
 
     return executeQuerySelect($profilQuery);
 

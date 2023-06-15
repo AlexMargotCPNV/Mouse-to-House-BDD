@@ -13,20 +13,20 @@ if (isset($bag['data']['mouse'])) {
                     <tr>
                         <td>
                             <div class="tab-content">
-                                <div class="span12"><h4><strong><?= $mouse[0]['brand'] ?></strong></h4> <div class="span3">New brand : <input type="text" placeholder="<?= $mouse[0]['brand'] ?>" name="newDescription" required></div>
-                                             <h4><strong><?= $mouse[0]['model'] ?></strong></h4> <div class="span3"> New model : <input type="text" placeholder="<?= $mouse[0]['model'] ?>" name="newDescription" required></div>
+                                <div class="span12"><h4><strong><?= $mouse[0]['brand'] ?></strong></h4> <div class="span3">New brand : <input type="text" placeholder="<?= $mouse[0]['brand'] ?>" name="newBrand" required></div>
+                                             <h4><strong><?= $mouse[0]['model'] ?></strong></h4> <div class="span3"> New model : <input type="text" placeholder="<?= $mouse[0]['model'] ?>" name="newModel" required></div>
                                 </div>
                                 <br>
-                                <div class="span3">Default Disponibilité : <?= $mouse[0]['number_available'] ?></div> <div class="span3">New Disponibilité : <input type="text" placeholder="<?= $mouse[0]['number_available'] ?>" name="newDescription" required></div>
+                                <div class="span3">Default Disponibilité : <strong><?= $mouse[0]['number_available'] ?></strong></div> <div class="span3">New Disponibilité : <input type="text" placeholder="<?= $mouse[0]['number_available'] ?>" name="newQuantity" required></div>
                                 <br>
-                                <div class="span3">Default Prix : <strong><?= $mouse[0]['price_francs'] ?>.- CHF</strong> <div class="span3"> New Prix :<input type="text" placeholder="<?= $mouse[0]['price_francs'] ?>" name="newDescription" required></div>
+                                <div class="span3">Default Prix : <strong><?= $mouse[0]['price_francs'] ?>.- CHF</strong> <div class="span3"> New Prix :<input type="text" placeholder="<?= $mouse[0]['price_francs'] ?>" name="newPrice" required></div>
                                 </div>
                                 <br>
-                                <div class="span3">Default Type : <?= $mouse[0]['type'] ?></div> <div class="span3">New type : <input type="text" placeholder="<?= $mouse[0]['type'] ?>" name="newDescription" required></div>
+                                <div class="span3">Default Type : <strong><?= $mouse[0]['type'] ?></strong></div> <div class="span3">New type : <input type="text" placeholder="<?= $mouse[0]['type'] ?>" name="newType" required></div>
                                 <br>
-                                <div class="span3">Default Poids : <?= $mouse[0]['weight_grams'] ?></div> <div class="span3"> New Poids :<input type="text" placeholder="<?= $mouse[0]['weight_grams'] ?>" name="newDescription" required></div>
+                                <div class="span3">Default Poids : <strong><?= $mouse[0]['weight_grams'] ?></strong></div> <div class="span3"> New Poids :<input type="text" placeholder="<?= $mouse[0]['weight_grams'] ?>" name="newWeight" required></div>
                                 <br>
-                                <div class="span3">Default Description : <?= $mouse[0]['description'] ?></div> <div class="span3">New Description : <input type="text" placeholder="<?= $mouse[0]['description'] ?>" name="newDescription" required></div>
+                                <div class="span3">Default Description : <strong><?= $mouse[0]['description'] ?></strong></div> <div class="span3">New Description : <input type="text" placeholder="<?= $mouse[0]['description'] ?>" name="newDescription" required></div>
                                 <br>
                         </td>
                         <th id="itemImage">
