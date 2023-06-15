@@ -28,3 +28,11 @@ function getRandomMouseCode(){
     $randomProductQuery = 'SELECT code FROM mth.products WHERE active = 1 ORDER BY RAND() LIMIT 1';
     return executeQuerySelectSingle($randomProductQuery);
 }
+
+function isUserAdmin(){
+    $separator = "\"";
+    $userName = $_SESSION['current_user'];
+    $username = "$userName";
+    $isUserAdminQuery = "SELECT admin FROM mth.users WHERE username =$separator$username$separator ";
+    return executeQuerySelect($isUserAdminQuery);
+}

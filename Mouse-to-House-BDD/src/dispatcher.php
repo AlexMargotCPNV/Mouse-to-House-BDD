@@ -32,12 +32,8 @@ function dispatch($bag)
         }
     }
     //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/userItems$/', $bag['route'])) {
-        $bag['handler'] = 'controllers/site/productsUser';
-    }
-    //-----------------------------------------------------------------------------
-    elseif (preg_match('/^\/adminItems$/', $bag['route'])) {
-        $bag['handler'] = 'controllers/site/productsAdmin';
+    elseif (preg_match('/^\/Items$/', $bag['route'])) {
+        $bag['handler'] = 'controllers/site/products';
     }
     //-----------------------------------------------------------------------------
     elseif (preg_match('/^\/item\/(\w+)$/', $bag['route'], $matches)) {
