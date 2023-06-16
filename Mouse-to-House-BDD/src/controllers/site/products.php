@@ -14,7 +14,8 @@ if (isset($_SESSION['current_user'])){
         $bag['view'] = 'views/site/itemsPageAdmin';
     } else if ($userAdminValue == 0) {
 
-        $bag['view'] = 'views/site/itemsPageUsers';
+        $bag['data']['mice'] = getMice();
+        $bag['view'] = 'views/site/itemsPageUser';
     } else {
         $bag['data']['mice'] = getMice();
         $bag['view'] = 'views/site/itemsPageUser';

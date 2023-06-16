@@ -13,7 +13,7 @@ if (isset($_SESSION['current_user'])){
         $bag['view'] = 'views/site/itemPage';
     } else if ($userAdminValue == 0) {
 
-        $bag['view'] = 'views/site/itemsPageUsers';
+        $bag['view'] = 'views/site/itemsPageUser';
     } else {
         $bag['data']['mouse'] = getMouse($bag['code']);
         $bag['view'] = 'views/site/itemPage';
